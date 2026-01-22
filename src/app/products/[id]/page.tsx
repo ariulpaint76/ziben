@@ -78,6 +78,11 @@ export default function ProductDetailPage() {
   }, [productId]);
 
   const handleBuyNow = async () => {
+    if (!product) {
+      alert('상품 정보를 불러오는 중입니다. 잠시 후 다시 시도해주세요.');
+      return;
+    }
+
     if (!selectedSize || !selectedColor) {
       alert('사이즈와 색상을 선택해주세요.');
       return;
