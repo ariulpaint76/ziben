@@ -191,7 +191,7 @@ export default function ProductDetailPage() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <ShoppingCart className="w-64 h-64 text-white/10" />
                 </div>
-                {product.discount > 0 && (
+                {product.discount && product.discount > 0 && (
                   <div className="absolute top-6 left-6 px-4 py-2 bg-red-500 rounded-full text-white font-bold">
                     {product.discount}% OFF
                   </div>
@@ -249,14 +249,16 @@ export default function ProductDetailPage() {
 
               {/* Price */}
               <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                {product.originalPrice > product.price && (
+                {product.originalPrice && product.originalPrice > product.price && (
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-white/40 line-through text-lg">
                       {product.originalPrice.toLocaleString()}원
                     </span>
-                    <span className="text-red-500 font-bold text-lg">
-                      {product.discount}% 할인
-                    </span>
+                    {product.discount && (
+                      <span className="text-red-500 font-bold text-lg">
+                        {product.discount}% 할인
+                      </span>
+                    )}
                   </div>
                 )}
                 <div className="flex items-baseline gap-2">
