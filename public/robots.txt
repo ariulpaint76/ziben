@@ -1,0 +1,18 @@
+# ZIBEN 작업복 & 안전화 - Robots.txt
+# https://two-mu26.vercel.app/robots.txt
+
+# 모든 검색엔진 봇 허용
+User-agent: *
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://two-mu26.vercel.app/sitemap.xml
+
+# 크롤링 속도 제한 (선택사항)
+# Crawl-delay: 1
+
+# 제외할 경로 (필요시 추가)
+# Disallow: /api/
+# Disallow: /admin/
+# Disallow: /_next/
+# Disallow: /private/
