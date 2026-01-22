@@ -1,11 +1,12 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { XCircle, ArrowLeft, RefreshCw } from 'lucide-react';
 
-export default function PaymentFailPage() {
+function PaymentFailContent() {
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
   const message = searchParams.get('message');
@@ -101,5 +102,22 @@ export default function PaymentFailPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function PaymentFailPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-br from-[#030014] via-[#0a0a2e] to-[#030014] flex items-center justify-center px-6">
+          <div className="text-center">
+            <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
+            <p className="text-white text-lg">로딩 중...</p>
+          </div>
+        </div>
+      }
+    >
+      <PaymentFailContent />
+    </Suspense>
   );
 }

@@ -25,7 +25,12 @@
       "Bash(git commit:*)",
       "Bash(npm run migrate:*)",
       "Bash(npm run create-admin:*)",
-      "Bash(vercel --version:*)"
+      "Bash(vercel --version:*)",
+      "Bash(vercel env add:*)",
+      "Bash(vercel logs:*)",
+      "Bash(vercel ls:*)",
+      "Bash(curl:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }
