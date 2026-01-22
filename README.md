@@ -14,6 +14,7 @@
 - **Navbar**: 스크롤 시 배경색이 변화하는 고정 내비게이션
 - **Hero Section**: 3D 배경과 함께하는 메인 히어로 영역
 - **Services**: Framer Motion 기반 staggered 애니메이션 카드
+- **Government News**: 정부 RSS 피드 연동 실시간 뉴스 (1시간 자동 갱신)
 - **Approach**: GSAP ScrollTrigger를 활용한 가로 스크롤 시퀀스
 - **Pricing**: 홀로그램 틸트 효과를 적용한 가격 카드
 - **Contact**: 글래스모피즘 디자인의 폼
@@ -72,8 +73,10 @@ npm start
 src/
 ├── app/
 │   ├── api/
-│   │   └── chat/
-│   │       └── route.ts     # Gemini AI API 엔드포인트
+│   │   ├── chat/
+│   │   │   └── route.ts     # Gemini AI API 엔드포인트
+│   │   └── rss/
+│   │       └── route.ts     # RSS 피드 파싱 API
 │   ├── layout.tsx          # 루트 레이아웃
 │   ├── page.tsx            # 메인 페이지
 │   ├── sitemap.ts          # SEO 사이트맵
@@ -86,6 +89,7 @@ src/
     ├── ProductGallery.tsx  # 제품 갤러리
     ├── BrandPhilosophy.tsx # 브랜드 철학
     ├── CategoryShowcase.tsx # 카테고리 쇼케이스
+    ├── GovernmentNews.tsx  # 정부 뉴스 (RSS 피드)
     ├── Workwear.tsx        # 작업복 라인업
     ├── SafetyShoes.tsx     # 안전화 라인업
     ├── Testimonials.tsx    # 고객 후기

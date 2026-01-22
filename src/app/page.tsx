@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero';
 import { ProductGallery } from '@/components/ProductGallery';
 import { BrandPhilosophy } from '@/components/BrandPhilosophy';
 import { CategoryShowcase } from '@/components/CategoryShowcase';
+import { GovernmentNews } from '@/components/GovernmentNews';
 import { Workwear } from '@/components/Workwear';
 import { SafetyShoes } from '@/components/SafetyShoes';
 import { Testimonials } from '@/components/Testimonials';
@@ -20,6 +21,7 @@ export default function Home() {
       <ProductGallery />
       <BrandPhilosophy />
       <CategoryShowcase />
+      <GovernmentNews />
       <Workwear />
       <SafetyShoes />
       <Testimonials />
