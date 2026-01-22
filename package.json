@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "tsx scripts/migrate-data.ts",
+    "create-admin": "tsx scripts/create-admin-simple.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.18",
@@ -14,7 +16,10 @@
     "@google/generative-ai": "^0.24.1",
     "@react-three/drei": "^9.117.3",
     "@react-three/fiber": "^8.17.10",
+    "@tosspayments/payment-sdk": "^1.9.2",
+    "@tosspayments/tosspayments-sdk": "^2.5.0",
     "ai": "^6.0.44",
+    "firebase": "^12.8.0",
     "framer-motion": "^11.15.0",
     "gsap": "^3.12.5",
     "lucide-react": "^0.462.0",
@@ -33,6 +38,7 @@
     "@types/xml2js": "^0.4.14",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.21.0"
   }
 }

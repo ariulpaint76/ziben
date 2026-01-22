@@ -22,7 +22,9 @@
       "Bash(ssh-add:*)",
       "Bash(ssh-keyscan:*)",
       "Bash(~/.ssh/known_hosts)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run migrate:*)",
+      "Bash(npm run create-admin:*)"
     ]
   }
 }

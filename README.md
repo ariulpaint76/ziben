@@ -37,15 +37,29 @@
 npm install
 ```
 
-### 2. 환경 변수 설정 (선택사항)
+### 2. 환경 변수 설정
 
-AI 챗봇 기능을 사용하려면 Google Gemini API 키가 필요합니다:
+Firebase 인증 및 결제 시스템을 사용하려면 환경 변수가 필요합니다:
 
-1. [Google AI Studio](https://aistudio.google.com/app/apikey)에서 API 키 발급
-2. `.env.local` 파일 생성 (선택사항 - 사용자가 브라우저에서 직접 입력 가능)
-3. 챗봇 설정 버튼(⚙️)을 클릭하여 API 키 및 모델 선택
+`.env.local` 파일을 생성하고 다음 값들을 입력하세요:
 
-**지원 모델:**
+```bash
+# Firebase 설정 (필수)
+NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+
+# Toss Payments 설정 (결제 기능 사용 시)
+NEXT_PUBLIC_TOSS_CLIENT_KEY=your-toss-client-key
+
+# Google Gemini API (AI 챗봇 기능 사용 시 - 선택사항)
+GEMINI_API_KEY=your-gemini-api-key
+```
+
+**AI 챗봇 지원 모델:**
 - Gemini 2.5 Flash (기본, 추천)
 - Gemini 1.5 Flash
 - Gemini 1.5 Flash 8B
@@ -60,7 +74,31 @@ npm run dev
 
 브라우저에서 [http://localhost:3000](http://localhost:3000) 을 열어 확인하세요.
 
-### 4. 프로덕션 빌드
+### 4. 관리자 계정 생성
+
+관리자 기능을 사용하려면 관리자 계정이 필요합니다.
+
+**방법 1: 회원가입 페이지에서 생성 (권장)**
+
+1. http://localhost:3000/auth/register 접속
+2. 다음 정보로 회원가입:
+   - 이메일: `admin@naver.com`
+   - 비밀번호: `1111`
+   - 이름: 관리자 (또는 원하는 이름)
+3. 회원가입 완료 후 자동으로 관리자 권한 부여됨
+
+**관리자 페이지 접속:**
+- http://localhost:3000/admin
+
+**테스트 계정 정보:**
+```
+이메일: admin@naver.com
+비밀번호: 1111
+```
+
+> ⚠️ **보안 주의사항**: 프로덕션 환경에서는 반드시 비밀번호를 변경하세요!
+
+### 5. 프로덕션 빌드
 
 ```bash
 npm run build

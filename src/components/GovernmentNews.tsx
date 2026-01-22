@@ -15,7 +15,7 @@ interface NewsItem {
 export function GovernmentNews() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [lastUpdate, setLastUpdate] = useState<Date>(new Date());
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
 
   const fetchNews = async () => {
     try {
@@ -80,11 +80,13 @@ export function GovernmentNews() {
           <p className="text-gray-600 mt-2">
             대한민국 정부에서 발표하는 최신 산업안전 및 작업환경 관련 소식
           </p>
-          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-500">
-            <Clock className="w-4 h-4" />
-            <span>마지막 업데이트: {lastUpdate.toLocaleTimeString('ko-KR')}</span>
-            <span className="text-gray-400">• 1시간마다 자동 갱신</span>
-          </div>
+          {lastUpdate && (
+            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-500">
+              <Clock className="w-4 h-4" />
+              <span>마지막 업데이트: {lastUpdate.toLocaleTimeString('ko-KR')}</span>
+              <span className="text-gray-400">• 1시간마다 자동 갱신</span>
+            </div>
+          )}
         </motion.div>
 
         {/* 뉴스 그리드 */}

@@ -1,9 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { User, UserPlus, LogOut, LayoutDashboard, UserCircle } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { user, userData, logout } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +19,15 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push('/');
+    } catch (error) {
+      console.error('로그아웃 오류:', error);
+    }
+  };
 
   return (
     <nav
@@ -27,6 +42,22 @@ export function Navbar() {
           </div>
 
           <ul className="hidden md:flex space-x-8">
+            <li>
+              <Link
+                href="/about"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                회사소개
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/products"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                상품소개
+              </Link>
+            </li>
             <li>
               <a
                 href="#workwear"
@@ -69,9 +100,54 @@ export function Navbar() {
             </li>
           </ul>
 
-          <a href="#contact" className="px-6 py-2 bg-gradient-to-r from-primary to-secondary rounded-full text-white font-medium hover:opacity-90 transition-opacity">
-            대량 구매 문의
-          </a>
+          <div className="flex items-center gap-4">
+            {user ? (
+              // 로그인된 경우
+              <>
+                {userData?.role === 'admin' && (
+                  <Link
+                    href="/admin"
+                    className="hidden md:flex items-center gap-2 px-4 py-2 text-white/80 hover:text-white transition-colors"
+                  >
+                    <LayoutDashboard className="w-4 h-4" />
+                    관리자
+                  </Link>
+                )}
+                <Link
+                  href="/mypage"
+                  className="hidden md:flex items-center gap-2 px-4 py-2 text-white/80 hover:text-white transition-colors"
+                >
+                  <UserCircle className="w-4 h-4" />
+                  마이페이지
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all flex items-center gap-2"
+                >
+                  <LogOut className="w-4 h-4" />
+                  로그아웃
+                </button>
+              </>
+            ) : (
+              // 로그인되지 않은 경우
+              <>
+                <Link
+                  href="/auth/login"
+                  className="hidden md:flex items-center gap-2 px-4 py-2 text-white/80 hover:text-white transition-colors"
+                >
+                  <User className="w-4 h-4" />
+                  로그인
+                </Link>
+                <Link
+                  href="/auth/register"
+                  className="px-6 py-2 bg-gradient-to-r from-primary to-secondary rounded-full text-white font-medium hover:opacity-90 transition-opacity flex items-center gap-2"
+                >
+                  <UserPlus className="w-4 h-4" />
+                  회원가입
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>
