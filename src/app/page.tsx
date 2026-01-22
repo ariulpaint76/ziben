@@ -10,6 +10,7 @@ import { Approach } from '@/components/Approach';
 import { Pricing } from '@/components/Pricing';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import AIChatbot from '@/components/AIChatbot';
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Pricing />
       <Contact />
       <Footer />
+      <AIChatbot />
     </main>
   );
 }

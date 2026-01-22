@@ -14,7 +14,14 @@
       "Bash(start:*)",
       "Bash(vercel --prod:*)",
       "Bash(vercel login)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\n1차 개발 완성\n\nZIBEN 프리미엄 작업복 랜딩페이지 초기 개발 완료\n- Next.js 15 App Router 기반 구축\n- 3D 그래픽 \\(Three.js, React Three Fiber\\) 통합\n- Framer Motion 및 GSAP 애니메이션 구현\n- 작업복 및 안전화 제품 라인업 구성\n- Google Apps Script 문의 폼 연동\n- SEO 최적화 및 반응형 디자인 적용\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(ssh-add:*)",
+      "Bash(ssh-keyscan:*)",
+      "Bash(~/.ssh/known_hosts)"
     ]
   }
 }
